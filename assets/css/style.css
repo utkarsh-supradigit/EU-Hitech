@@ -4536,7 +4536,7 @@ p {
 	background-repeat: no-repeat;
 	background-position-x: center;
 	background-position-y: 70px;
-	padding: 195px 0;
+	padding: 120px 0;
 	overflow: hidden;
 	position: relative;
 }
@@ -4940,6 +4940,27 @@ p {
 
 .messages-area-one-main ul li .icon svg {
 	width: 60px;
+}
+
+#open-positions {
+	padding-top: 120px;
+	padding-bottom: 120px;
+	background-color: var(--section-background);
+}
+
+#open-positions .services__content-three ul {
+	padding-left: 2rem;
+}
+
+#open-positions .services__item-three {
+	background-color: white;
+	padding: 40px;
+	border-radius: 10px;
+}
+
+.banner-area-three {
+	background-color: var(--section-background);
+	padding: 120px 0;
 }
 
 /* Preloader */
