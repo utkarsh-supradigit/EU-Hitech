@@ -48,6 +48,7 @@
 	--link-font-family: 'Rajdhani', sans-serif;
 	--primary: #186DA4;
 	--black: #171717;
+	--secondary: #4ab6fd;
 	--white: #ffffff;
 	--heading-font-color: #171717;
 	--heading-font-weight: 700;
@@ -1118,7 +1119,7 @@ p {
 }
 
 .banner-area-one .banner-shape .black-colour {
-	fill: var(--black);
+	fill: var(--secondary);
 }
 
 .banner-area-one .banner-title {
@@ -1797,13 +1798,17 @@ p {
 	left: 0;
 	width: 100%;
 	height: 60%;
-	background-color: var(--black);
+	background-color: var(--secondary);
 	content: "";
 	z-index: -1;
 }
 
 .recent-work-area-one .container-fluid {
 	padding: 0 40px;
+}
+
+.recent-work-area-one .project-item-one {
+	cursor: pointer;
 }
 
 .recent-work-area-one .project-item-one .image {
@@ -1813,14 +1818,14 @@ p {
 
 .recent-work-area-one .project-item-one .info {
 	background-color: rgba(23, 23, 23, 0.9);
-	padding: 30px;
+	padding: 16px;
 	transition: var(--transision);
 	/* transform: translateY(100%); */
 }
 
 .recent-work-area-one .project-item-one .info .text .title {
 	color: var(--white);
-	font-size: 28px;
+	font-size: 24px;
 }
 
 .recent-work-area-one .project-item-one .info .text .title:hover a {
@@ -4916,6 +4921,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	gap: 5rem;
+	padding-top: 85px;
 }
 
 .messages-area-one-main ul li {

@@ -52,7 +52,7 @@
 	$(".recent-work-slider-one").slick({
 		infinite: true,
 		speed: 500,
-		slidesToShow: 3,
+		slidesToShow: 4,
 		dots: false,
 		autoplay: false,
 		slidesToScroll: 1,
@@ -383,113 +383,22 @@
 		$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
 	});
 
-	const projectImages = document.querySelectorAll(".project-item img")
-    const modal = document.getElementById('slideshowModal');
-    const modalImg = document.querySelector('.modal-image');
-    const closeBtn = document.querySelector('.close');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+	$('#slideshowModal .close').on("click", function() {
+		$("#slideshowModal").css("display", "none")
+	})
 
-    let currentIndex = 0;
-    let slideInterval;
-    const slideDuration = 10000;
+	$('.slider').slick({
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: true,
+		prevArrow: ".prev",
+		nextArrow: ".next",
+		autoplay: true
+	});
 
-    // Convert NodeList to Array for easier handling
-    const imageArray = Array.from(projectImages);
-
-    // Function to open modal and display the clicked image
-    const openModal = (index) => {
-        currentIndex = index;
-        modal.style.display = "block";
-        modalImg.src = imageArray[currentIndex].src;
-        modalImg.classList.add('slide-in-right');
-        startAutoSlide();
-    };
-
-    // Function to close the modal
-    const closeModal = () => {
-        modal.style.display = "none";
-        stopAutoSlide();
-    };
-
-    // Function to show the next image
-    const showNext = () => {
-        console.log("Showing next image")
-        // Add slide-out to left animation to current image
-        modalImg.classList.remove('slide-in-right', 'slide-in-left');
-        modalImg.classList.add('slide-out-right');
-
-        // After animation ends, change the image and add slide-in from right
-        modalImg.addEventListener('animationend', function handleNext() {
-            modalImg.removeEventListener('animationend', handleNext);
-            currentIndex = (currentIndex + 1) % imageArray.length;
-            modalImg.src = imageArray[currentIndex].src;
-            modalImg.classList.remove('slide-out-right');
-            modalImg.classList.add('slide-in-left');
-        });
-    };
-
-    // Function to show the previous image
-    const showPrev = () => {
-        // Add slide-out to right animation to current image
-        modalImg.classList.remove('slide-in-right', 'slide-in-left');
-        modalImg.classList.add('slide-out-left');
-
-        // After animation ends, change the image and add slide-in from left
-        modalImg.addEventListener('animationend', function handlePrev() {
-            modalImg.removeEventListener('animationend', handlePrev);
-            currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
-            modalImg.src = imageArray[currentIndex].src;
-            modalImg.classList.remove('slide-out-left');
-            modalImg.classList.add('slide-in-right');
-        });
-    };
-
-    // Function to start auto-scrolling
-    const startAutoSlide = () => {
-        console.log("Start Auto slide")
-        slideInterval = setInterval(showNext, slideDuration);
-    };
-
-    // Function to stop auto-scrolling
-    const stopAutoSlide = () => {
-        console.log("Stop auto slide")
-        clearInterval(slideInterval);
-    };
-
-    // Function to reset the auto-slide timer (e.g., after manual navigation)
-    const resetAutoSlide = () => {
-        stopAutoSlide();
-        // startAutoSlide();
-    };
-
-    // Add click event to each image
-    projectImages.forEach((img, index) => {
-        img.addEventListener('click', () => {
-            openModal(index);
-        });
-    });
-
-    // Add event listeners for navigation and closing
-    closeBtn.addEventListener('click', closeModal);
-    nextBtn.addEventListener('click', () => {
-        showNext();
-        resetAutoSlide();
-    });
-    prevBtn.addEventListener('click', () => {
-        showPrev();
-        resetAutoSlide();
-    });
-
-    // Close modal when clicking outside the image
-    window.addEventListener('click', (e) => {
-        if (e.target == modal) {
-            closeModal();
-        }
-    });
-
-    // Pause auto-slide when hovering over the modal content
-    modal.addEventListener('mouseenter', stopAutoSlide);
-    modal.addEventListener('mouseleave', startAutoSlide);
+	$('.project-image').on('click', function() {
+		$('#slideshowModal').css("display", "block");
+	});
 
 })(jQuery);
