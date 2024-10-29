@@ -1105,6 +1105,7 @@ p {
 	position: relative;
 }
 
+
 .banner-area-one::before {
 	content: "";
 	position: absolute;
@@ -1127,6 +1128,7 @@ p {
 }
 
 .banner-area-one .banner-shape .black-colour {
+
 	fill: var(--secondary);
 }
 
@@ -1902,6 +1904,7 @@ p {
 	background-color: var(--primary);
 	color: var(--white);
 }
+
 
 @media only screen and (max-width: 768px){
 	.recent-work-slider-one {
